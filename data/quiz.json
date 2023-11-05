@@ -1,0 +1,176 @@
+{
+    "title": "In Their Own Words",
+    "intro": "We asked our fellow Dragonfruit to share a fun fact. Can you guess who said what?",
+    "facts": [
+        {
+            "fact": "I went to the same high school as Madonna.",
+            "options": [
+                "Ruta",
+                "Ryan",
+                "Anastasia",
+                "Amber"
+            ],
+            "answer": "Ryan"
+        },
+        {
+            "fact": "I also got my butt kicked by Jean Claude Van Damme.",
+            "options": [
+                "Pim",
+                "Anastasia",
+                "Ruta",
+                "Robi"
+            ],
+            "answer": "Ruta"
+        },
+        {
+            "fact": "I once danced for 30 hours straight without caffeine (or drugs).",
+            "options": [
+                "Caity",
+                "Mishka",
+                "Liyanbing",
+                "Anastasia"
+            ],
+            "answer": "Anastasia"
+        },
+        {
+            "fact": "I have a fish named Bully, and he follows & swims alongside my finger.",
+            "options": [
+                "Amber",
+                "Maryse",
+                "Liyanbing",
+                "Elisabeth"
+            ],
+            "answer": "Amber"
+        },
+        {
+            "fact": "I was on the show Blue's Clues as a little kid.",
+            "options": [
+                "Robi",
+                "Elisabeth",
+                "Caity",
+                "Mishka"
+            ],
+            "answer": "Elisabeth"
+        },
+        {
+            "fact": "My ancestors are from five continents.",
+            "options": [
+                "Ruta",
+                "Annika",
+                "Elisabeth",
+                "Anastasia"
+            ],
+            "answer": "Elisabeth"
+        },
+        {
+            "fact": "I play banjo.",
+            "options": [
+                "Ryan",
+                "Mishka",
+                "Elisabeth",
+                "Pim"
+            ],
+            "answer": "Elisabeth"
+        },
+        {
+            "fact": "I can make my tongue look like it's split down the middle.",
+            "options": [
+                "Ruta",
+                "Elisabeth",
+                "Liyanbing",
+                "Amber"
+            ],
+            "answer": "Elisabeth"
+        },
+        {
+            "fact": "I used to snore so loud that I had to get surgery to fix it",
+            "options": [
+                "Ruta",
+                "Robi",
+                "Pim",
+                "Amber"
+            ],
+            "answer": "Robi"
+        },
+        {
+            "fact": "On my 18th birthday I was arrested for vandalizing a police car.",
+            "options": [
+                "Annika",
+                "Maryse",
+                "Caity",
+                "Ryan"
+            ],
+            "answer": "Annika"
+        },
+        {
+            "fact": "I have haunting dreams about penguins sometimes.",
+            "options": [
+                "Amber",
+                "Maryse",
+                "Robi",
+                "Pim"
+            ],
+            "answer": "Pim"
+        },
+        {
+            "fact": "I nearly slept on the hotel floor of a now 3x Grammy winning artist back when I was a teen..",
+            "options": [
+                "Ryan",
+                "Pim",
+                "Caity",
+                "Mishka"
+            ],
+            "answer": "Pim"
+        },
+        {
+            "fact": "I was in a horse stampede and barely survived. ",
+            "options": [
+                "Maryse",
+                "Caity",
+                "Amber",
+                "Ruta"
+            ],
+            "answer": "Caity"
+        },
+        {
+            "fact": "I have Synaesthesia, Hypergraphia, etc. ",
+            "options": [
+                "Liyanbing",
+                "Caity",
+                "Elisabeth",
+                "Amber"
+            ],
+            "answer": "Caity"
+        },
+        {
+            "fact": "I don't know how to ride a bicycle.",
+            "options": [
+                "Mishka",
+                "Anastasia",
+                "Robi",
+                "Ryan"
+            ],
+            "answer": "Mishka"
+        },
+        {
+            "fact": "I auditioned for xfactor usa and they told me I sing too quietly.",
+            "options": [
+                "Maryse",
+                "Mishka",
+                "Caity",
+                "Elisabeth"
+            ],
+            "answer": "Maryse"
+        },
+        {
+            "fact": "I like to find stray kittens under 3 month old, abandoned by the cat mom, and raise it to around 7 month old and find it a new adoption family.",
+            "options": [
+                "Liyanbing",
+                "Ryan",
+                "Anastasia",
+                "Amber"
+            ],
+            "answer": "Liyanbing"
+        }
+    ]
+}
