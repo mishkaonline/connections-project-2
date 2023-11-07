@@ -13,7 +13,7 @@
             "answer": "Ryan"
         },
         {
-            "fact": "I also got my butt kicked by Jean Claude Van Damme.",
+            "fact": "I got my butt kicked by Jean Claude Van Damme.",
             "options": [
                 "Pim",
                 "Anastasia",
@@ -63,7 +63,7 @@
             "answer": "Elisabeth"
         },
         {
-            "fact": "I play banjo.",
+            "fact": "I play the banjo.",
             "options": [
                 "Ryan",
                 "Mishka",
@@ -153,7 +153,7 @@
             "answer": "Mishka"
         },
         {
-            "fact": "I auditioned for xfactor usa and they told me I sing too quietly.",
+            "fact": "I auditioned for X-Factor USA and they told me I sing too quietly.",
             "options": [
                 "Maryse",
                 "Mishka",
@@ -163,7 +163,7 @@
             "answer": "Maryse"
         },
         {
-            "fact": "I like to find stray kittens under 3 month old, abandoned by the cat mom, and raise it to around 7 month old and find it a new adoption family.",
+            "fact": "I like to find stray kittens that have been abandoned by the cat mom, and raise it until I find them a new adoption family.",
             "options": [
                 "Liyanbing",
                 "Ryan",
