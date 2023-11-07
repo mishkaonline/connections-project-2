@@ -11,7 +11,7 @@ submitButton.addEventListener("click", () => {
 
 })
 
-// Test button to request a question
+// Test button to request a question (eventually, have this triggered by submitting your name)
 const questionButton = document.getElementById("get-question");
 questionButton.addEventListener("click", () => {
     socket.emit('getquestion');
@@ -25,23 +25,24 @@ socket.on('user scores', (data) => {
 
 // When we receive a question, display it
 socket.on('question', (question, options) => {
+    removeIntro();
     console.log(question);
     console.log(options);
 
     //create new div for question and add a paragraph with the question text
-    let questionDiv = document.createElement('div');
+    let quizDiv = document.getElementById('quiz');
     let questionText = document.createElement('p');
-    questionDiv.id = "question";
-    questionDiv.className = "question";
+    quizDiv.id = "question";
+    quizDiv.className = "question";
     questionText.innerHTML = question;
-    questionDiv.appendChild(questionText);
-    document.body.appendChild(questionDiv);
+    quizDiv.appendChild(questionText);
+    document.body.appendChild(quizDiv);
 
     //create new div for options
     let optionsDiv = document.createElement('div');
     optionsDiv.id = "options";
     optionsDiv.className = "options";
-    questionDiv.appendChild(optionsDiv);
+    quizDiv.appendChild(optionsDiv);
 
     // create a button for each option
     for (let i = 0; i < options.length; i++) {
@@ -52,3 +53,11 @@ socket.on('question', (question, options) => {
     }
 
 })
+
+// Function to remove intro when quiz starts
+function removeIntro() {
+    let intro = document.getElementById('intro');
+    intro.remove;
+}
+
+// Function to remove question when next question loaded
