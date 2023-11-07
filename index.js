@@ -4,6 +4,12 @@ const { join } = require('node:path');
 const { Server } = require('socket.io');
 let quiz = require('./data/quiz.json'); // import questions from quiz.json
 
+//Variables
+let questionNo = 0; // used to select a question from the array
+
+const maxQuestions = 5; // maximum number of questions to ask per game
+let currentScore = 0; // current score for player
+
 
 //Initialise HTTP Server
 const app = express();
@@ -16,9 +22,7 @@ server.listen(port, () => {
 //Initialise Socket.io
 const io = new Server(server);
 
-//Variables
-let questionNo = 0;
-let currentScore = 0;
+
 
 // app.get('/', (req, res) => {
 //   res.sendFile(join(__dirname, 'index.html'));
