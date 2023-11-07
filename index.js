@@ -2,7 +2,7 @@ const express = require('express');
 const { createServer } = require('node:http');
 const { join } = require('node:path');
 const { Server } = require('socket.io');
-const questions = require('./data/quiz.json'); // import questions from quiz.json
+let quiz = require('./data/quiz.json'); // import questions from quiz.json
 
 
 //Initialise HTTP Server
@@ -41,7 +41,7 @@ io.on('connection', (socket) => { // when a new user connects
     console.log(users);
     io.emit('user scores', users); // Why do we do it both here and above?
   });
-  socket.on('disconnect', function () {
+  socket.on('disconnect', () => {
     delete users[userID]; // remove a player from the users object when they disconnect
     console.log(users);
   });
@@ -49,37 +49,31 @@ io.on('connection', (socket) => { // when a new user connects
   // When client requests a question, send a random question
   socket.on('getquestion', () => {
     console.log("question requested");
-    getQuestions().then(data => {
-      console.log(data);
-      questionNo = Math.floor(Math.random() * questions.length);
-      io.emit('question', questions[questionNo].question, questions[questionNo].options);
-
-    });
-
-    // fetch questions from data/quiz.json
-    // async function getQuestions() {
-    //   const response = await fetch('data/quiz.json');
-    //   const data = await response.json();
-    //   return data;
-    //   console.log(data);
-    // }
 
     // send a random question to the user
-    questionNo = Math.floor(Math.random() * questions.length);
+    questionNo = Math.floor(Math.random() * quiz.questions.length);
+    console.log(questionNo);
 
     // send the question and options to client
-    io.emit('question', questions[questionNo].question, questions[questionNo].options);
+    io.emit('question', quiz.questions[questionNo].question, quiz.questions[questionNo].options);
+
+    // log what we sent
+    console.log(quiz.questions[questionNo].question);
+    console.log(quiz.questions[questionNo].options);
 
   });
+
 });
 
-async function getQuestions() {
-  return fetch('data/quiz.json').then(res => res.json())
-    .then(data => {
-      console.log(data);
-      return data;
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-}
+
+
+// async function getQuestions() {
+//   return fetch('data/quiz.json').then(res => res.json())
+//     .then(data => {
+//       console.log(data);
+//       return data;
+//     })
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
+// }
