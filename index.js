@@ -2,6 +2,8 @@ const express = require('express');
 const { createServer } = require('node:http');
 const { join } = require('node:path');
 const { Server } = require('socket.io');
+const questions = require('./data/quiz.json'); // import questions from quiz.json
+
 
 //Initialise HTTP Server
 const app = express();
@@ -44,11 +46,14 @@ io.on('connection', (socket) => { // when a new user connects
     console.log(users);
   });
 
+  // When client requests a question, send a random question
   socket.on('getquestion', () => {
     console.log("question requested");
     getQuestions().then(data => {
       console.log(data);
-      io.emit('question', data[questionNo].question, data[questionNo].options);
+      questionNo = Math.floor(Math.random() * questions.length);
+      io.emit('question', questions[questionNo].question, questions[questionNo].options);
+
     });
 
     // fetch questions from data/quiz.json
