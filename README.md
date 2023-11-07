@@ -6,21 +6,30 @@
 
 <!-- 3. There might be a need to initialise a "room" by having each player press start -->
 
-4. A random question is displayed to all players
+4. A random question is displayed to each player
 
-5. 5 answers are shuffled and displayed to all players, including the correct answer
+5. 5 answers are shuffled and displayed, including the correct answer
+OK, for now I just added "wrong answers" to the JSON file but I think there's a way to do this on the fly...
+- put every possible answer into an array
+- in the question object, instead of the answer being a string, it'd be answers[n] where n is the index of that particular answer in the array
+- then we'd add 4 more answers with random(answers.length)—could use a for loop here
+- we'd need to make sure no answers repeat, possibly by popping them from the array as we go
+- Still need to figure out how to shuffle them, that could be a separate function that takes the result of this function as a 0-4 array and scrambles them?
 
 6. Countdown timer starts
 
-7. Each player selects an answer
+7. Player selects an answer
 
-8. Once all players have selected or the timer is up, the correct answer is displayed to all players
+8. Display the correct answer + the one the player chose
 
-9. Each player can see what the other players answered (emit)
+<!-- 9. Each player can see what the other players answered (emit) -->
 
-10. Each player is awarded points for correct answers
+10. Each player is awarded a point for a correct answer
+- there should be a score variable attached to player ID
+- if answer is correct, score++
 
 11. Scoreboard is updated
+(The implementation we have right now should mean this is always being emitted live?)
 
 12. Repeat from step 4 until five questions have been answered
 
@@ -30,8 +39,8 @@
 
 ## REQUIREMENTS
 
-1. Database of questions and answers (optional: wrong answers for each question) - MongoDB
+1. Database of questions and answers (optional: wrong answers for each question) - MongoDB (local JSON for now)
 
-2. Ability for new client to join the game and pick a name - Socket.io
+2. Ability for new client to join the game and pick a name - socket.io
 
-3. Assign score to client - Socket.io/MongoDB?
+3. Assign score to client - Socket.io/MongoDB? (Mongo if we want a leaderboard)

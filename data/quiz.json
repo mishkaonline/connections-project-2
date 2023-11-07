@@ -1,176 +1,193 @@
 {
     "title": "In Their Own Words",
     "intro": "We asked our fellow Dragonfruit to share a fun fact. Can you guess who said what?",
-    "facts": [
+    "questions": [
         {
-            "fact": "I went to the same high school as Madonna.",
+            "question": "I went to the same high school as Madonna.",
             "options": [
                 "Ruta",
                 "Ryan",
                 "Anastasia",
-                "Amber"
+                "Amber",
+                "Elisabeth"
             ],
-            "answer": "Ryan"
+            "answer": 1
         },
         {
-            "fact": "I got my butt kicked by Jean Claude Van Damme.",
+            "question": "I got my butt kicked by Jean Claude Van Damme.",
             "options": [
                 "Pim",
                 "Anastasia",
                 "Ruta",
+                "Robi",
+                "Caity"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "I once danced for 30 hours straight without caffeine (or drugs).",
+            "options": [
+                "Caity",
+                "Mishka",
+                "Liyanbing",
+                "Anastasia",
                 "Robi"
             ],
-            "answer": "Ruta"
+            "answer": 3
         },
         {
-            "fact": "I once danced for 30 hours straight without caffeine (or drugs).",
-            "options": [
-                "Caity",
-                "Mishka",
-                "Liyanbing",
-                "Anastasia"
-            ],
-            "answer": "Anastasia"
-        },
-        {
-            "fact": "I have a fish named Bully, and he follows & swims alongside my finger.",
+            "question": "I have a fish named Bully, and he follows & swims alongside my finger.",
             "options": [
                 "Amber",
                 "Maryse",
                 "Liyanbing",
-                "Elisabeth"
+                "Elisabeth",
+                "Ryan"
             ],
-            "answer": "Amber"
+            "answer": 0
         },
         {
-            "fact": "I was on the show Blue's Clues as a little kid.",
+            "question": "I was on the show Blue's Clues as a little kid.",
             "options": [
                 "Robi",
                 "Elisabeth",
                 "Caity",
-                "Mishka"
+                "Mishka",
+                "Annika"
             ],
-            "answer": "Elisabeth"
+            "answer": 1
         },
         {
-            "fact": "My ancestors are from five continents.",
+            "question": "My ancestors are from five continents.",
             "options": [
                 "Ruta",
                 "Annika",
                 "Elisabeth",
-                "Anastasia"
+                "Anastasia",
+                "Maryse"
             ],
-            "answer": "Elisabeth"
+            "answer": 2
         },
         {
-            "fact": "I play the banjo.",
+            "question": "I play the banjo.",
             "options": [
                 "Ryan",
                 "Mishka",
                 "Elisabeth",
-                "Pim"
+                "Pim",
+                "Anastasia"
             ],
-            "answer": "Elisabeth"
+            "answer": 2
         },
         {
-            "fact": "I can make my tongue look like it's split down the middle.",
+            "question": "I can make my tongue look like it's split down the middle.",
             "options": [
                 "Ruta",
                 "Elisabeth",
                 "Liyanbing",
-                "Amber"
+                "Amber",
+                "Maryse"
             ],
-            "answer": "Elisabeth"
+            "answer": 1
         },
         {
-            "fact": "I used to snore so loud that I had to get surgery to fix it",
+            "question": "I used to snore so loud that I had to get surgery to fix it",
             "options": [
                 "Ruta",
                 "Robi",
                 "Pim",
-                "Amber"
+                "Amber",
+                "Ryan"
             ],
-            "answer": "Robi"
+            "answer": 1
         },
         {
-            "fact": "On my 18th birthday I was arrested for vandalizing a police car.",
+            "question": "On my 18th birthday I was arrested for vandalizing a police car.",
             "options": [
                 "Annika",
                 "Maryse",
                 "Caity",
-                "Ryan"
+                "Ryan",
+                "Mishka"
             ],
-            "answer": "Annika"
+            "answer": 0
         },
         {
-            "fact": "I have haunting dreams about penguins sometimes.",
+            "question": "I have haunting dreams about penguins sometimes.",
             "options": [
                 "Amber",
                 "Maryse",
                 "Robi",
-                "Pim"
+                "Pim",
+                "Liyanbing"
             ],
-            "answer": "Pim"
+            "answer": 3
         },
         {
-            "fact": "I nearly slept on the hotel floor of a now 3x Grammy winning artist back when I was a teen..",
+            "question": "I nearly slept on the hotel floor of a now 3x Grammy winning artist back when I was a teen..",
             "options": [
                 "Ryan",
                 "Pim",
                 "Caity",
-                "Mishka"
+                "Mishka",
+                "Anastasia"
             ],
-            "answer": "Pim"
+            "answer": 1
         },
         {
-            "fact": "I was in a horse stampede and barely survived. ",
+            "question": "I was in a horse stampede and barely survived. ",
             "options": [
                 "Maryse",
                 "Caity",
                 "Amber",
-                "Ruta"
+                "Ruta",
+                "Ryan"
             ],
-            "answer": "Caity"
+            "answer": 1
         },
         {
-            "fact": "I have Synaesthesia, Hypergraphia, etc. ",
+            "question": "I have Synaesthesia, Hypergraphia, etc. ",
             "options": [
                 "Liyanbing",
+                "Anastasia",
                 "Caity",
                 "Elisabeth",
                 "Amber"
             ],
-            "answer": "Caity"
+            "answer": 2
         },
         {
-            "fact": "I don't know how to ride a bicycle.",
+            "question": "I don't know how to ride a bicycle.",
             "options": [
                 "Mishka",
                 "Anastasia",
                 "Robi",
-                "Ryan"
+                "Ryan",
+                "Maryse"
             ],
-            "answer": "Mishka"
+            "answer": 0
         },
         {
-            "fact": "I auditioned for X-Factor USA and they told me I sing too quietly.",
+            "question": "I auditioned for X-Factor USA and they told me I sing too quietly.",
             "options": [
                 "Maryse",
                 "Mishka",
                 "Caity",
-                "Elisabeth"
+                "Elisabeth",
+                "Amber"
             ],
-            "answer": "Maryse"
+            "answer": 0
         },
         {
-            "fact": "I like to find stray kittens that have been abandoned by the cat mom, and raise it until I find them a new adoption family.",
+            "question": "I like to find stray kittens that have been abandoned by the cat mom, and raise it until I find them a new adoption family.",
             "options": [
+                "Pim",
                 "Liyanbing",
                 "Ryan",
                 "Anastasia",
                 "Amber"
             ],
-            "answer": "Liyanbing"
+            "answer": 1
         }
     ]
 }
