@@ -94,13 +94,17 @@ io.on('connection', (socket) => {
 
     // check if we've reached the maximum number of questions
     if (currentQuestion < maxQuestions) {
-      console.log("asking another question");
       currentQuestion++;
+      console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
+      console.log("asking another question");
       io.emit('getquestion');
     } else {
+      console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
       console.log("game over!");
       io.emit('gameover', currentScore);
     }
+
+
 
   })
 });

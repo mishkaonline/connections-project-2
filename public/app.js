@@ -9,15 +9,17 @@ submitButton.addEventListener("click", () => {
     //get the user's name from input box
     const playerName = document.getElementById('name-field').value; // set playerName to what was just typed in the field
     socket.emit('new user', playerName);
+    socket.emit('getquestion');
+    console.log("requesting a question");
 
 })
 
 // Test button to request a question (eventually, have this triggered by submitting your name)
-const questionButton = document.getElementById("get-question");
-questionButton.addEventListener("click", () => {
-    socket.emit('getquestion');
-    console.log("requesting a question");
-})
+// const questionButton = document.getElementById("get-question");
+// questionButton.addEventListener("click", () => {
+//     socket.emit('getquestion');
+//     console.log("requesting a question");
+// })
 
 // Log anything we receive with the key "user scores"
 socket.on('user scores', (data) => {
@@ -28,6 +30,7 @@ socket.on('user scores', (data) => {
 socket.on('question', (question, options) => {
     isAnswered = false;
     removeIntro();
+    // removeQuestion();
     console.log(question);
     console.log(options);
 
@@ -63,6 +66,7 @@ socket.on('question', (question, options) => {
         let optionButton = document.getElementById("option" + i);
         optionButton.onclick = function () {
             if (!isAnswered) {
+                optionButton.classList.add("selected");
                 socket.emit("answer", i);
                 console.log("Player answered: " + i);
                 isAnswered = true;
@@ -81,22 +85,30 @@ socket.on('results', (data) => {
     quizDiv.appendChild(results);
 
     if (data.answer = true) {
-        answerDiv.innerHTML = "Correct! It was " + quiz.questions[questionNo].answer + "!";
+        results.innerHTML = "Correct! It was " + quiz.questions[questionNo].options[quiz.questions[questionNo].answer] + "!";
     } else {
-        answerDiv.innerHTML = "Wrong! It was " + quiz.questions[questionNo].answer + "!";
+        results.innerHTML = "Wrong! It was " + quiz.questions[questionNo].options[quiz.questions[questionNo].answer] + "!";
     }
 
     // add a button to request the next question
     let nextButton = document.createElement('button');
     nextButton.id = "next-button";
-    nextButton.className = "next-button";
+    nextButton.className = "button";
     quizDiv.appendChild(nextButton);
 })
 
 // Function to remove intro when quiz starts
 function removeIntro() {
     let intro = document.getElementById('intro');
-    intro.remove;
+    intro.remove();
 }
 
 // Function to remove question when next question loaded
+function removeQuestion() {
+    let question = document.getElementById('question');
+    question.remove();
+    let options = document.getElementById('options');
+    options.remove();
+    let results = document.getElementById('results');
+    results.remove();
+}
