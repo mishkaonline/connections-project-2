@@ -4,21 +4,6 @@ body {
     color: #1B1C21;
 }
 
-/*styling for scoreboard, not sure why it isn't working*/
-.scoreboard {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.score {
-    margin-bottom: 5px;
-}
-
 /* Max-Width Container */
 .container {
     max-width: 1600px;
@@ -43,7 +28,6 @@ body {
     text-align: center;
 }
 
-/*styling name submission button*/
 #submit-button {
     background-color: #1B1C21;
     font-family: 'Space Mono', monospace;
@@ -60,28 +44,7 @@ body {
 }
 
 #submit-button:hover {
-    background-color: #588157;
-    color: white;
-}
-
-/*styling get-a-question button*/
-#get-question {
-    background-color: #1B1C21;
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    color: white;
-    border-radius: 18px;
-    /* rounded edges*/
-    border: none;
-    padding: 9px 18px;
-    /* button pading */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    /* smooth transition for color change */
-}
-
-#get-question:hover {
-    background-color: #588157;
+    background-color: #04AA6D;
     color: white;
 }
 
@@ -133,10 +96,4 @@ body {
     border-radius: 0.5rem;
     /* display: flex;
     flex-direction: column; */
-}
-
-.option:hover {
-    cursor: pointer;
-    transition: 0.2s;
-    box-shadow: rgba(27, 28, 33, 0.25) 0px 13px 27px -5px, rgba(27, 28, 33, 0.3) 0px 8px 16px -8px;
 }
