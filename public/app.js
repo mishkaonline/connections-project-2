@@ -73,6 +73,27 @@ socket.on('question', (question, options) => {
 
 })
 
+// Display whether the player got the answer right or wrong
+socket.on('results', (data) => {
+    console.log(data);
+    let quizDiv = document.getElementById('quiz');
+    let results = document.createElement('p');
+    results.id = "results";
+    quizDiv.appendChild(results);
+
+    if (data.answer = true) {
+        answerDiv.innerHTML = "Correct! It was " + quiz.questions[questionNo].answer + "!";
+    } else {
+        answerDiv.innerHTML = "Wrong! It was " + quiz.questions[questionNo].answer + "!";
+    }
+
+    // add a button to request the next question
+    let nextButton = document.createElement('button');
+    nextButton.id = "next-button";
+    nextButton.className = "next-button";
+    quizDiv.appendChild(nextButton);
+})
+
 // Function to remove intro when quiz starts
 function removeIntro() {
     let intro = document.getElementById('intro');

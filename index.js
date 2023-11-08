@@ -8,6 +8,7 @@ let quiz = require('./data/quiz.json'); // import questions from quiz.json
 let questionNo = 0; // used to select a question from the array
 
 const maxQuestions = 5; // maximum number of questions to ask per game
+let currentQuestion = 0; // current question number
 let currentScore = 0; // current score for player
 
 
@@ -67,6 +68,41 @@ io.on('connection', (socket) => { // when a new user connects
 
   });
 
+
+
+});
+
+io.on('connection', (socket) => {
+  console.log('input socket connected : ' + socket.id);
+
+  // When client submits an answer, check if it's correct
+  socket.on('answer', (answer) => {
+    console.log("answer submitted: " + answer);
+    console.log("correct answer: " + quiz.questions[questionNo].answer);
+    if (answer == quiz.questions[questionNo].answer) {
+      console.log("correct!");
+      currentScore++;
+      console.log("current score: " + currentScore);
+      socket.emit("results", { answer: true });
+    } else {
+      console.log("incorrect!");
+      socket.emit('results', { answer: false });
+    }
+
+    // remove the question from the array so it can't be asked again
+    quiz.questions.splice(questionNo, 1);
+
+    // check if we've reached the maximum number of questions
+    if (currentQuestion < maxQuestions) {
+      console.log("asking another question");
+      currentQuestion++;
+      io.emit('getquestion');
+    } else {
+      console.log("game over!");
+      io.emit('gameover', currentScore);
+    }
+
+  })
 });
 
 
