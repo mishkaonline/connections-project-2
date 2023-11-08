@@ -46,8 +46,15 @@ socket.on('question', (question, options) => {
 
     // create a button for each option
     for (let i = 0; i < options.length; i++) {
-        let option = document.createElement('button');
+        let option = document.createElement('div');
         option.id = "option" + i;
+        option.className = "option";
+
+        // add avatar to the button
+        let avatarURL = "./avatars/" + options[i] + ".png";
+        option.style.backgroundImage = `url(${avatarURL})`;
+
+        // add option text below the avatar
         option.innerHTML = options[i];
         optionsDiv.appendChild(option);
     }
