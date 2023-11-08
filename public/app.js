@@ -85,17 +85,29 @@ socket.on('results', (data) => {
     quizDiv.appendChild(results);
 
     if (data.answer = true) {
-        results.innerHTML = "Correct! It was " + quiz.questions[questionNo].options[quiz.questions[questionNo].answer] + "!";
+        results.innerHTML = "Correct! The answer was " + data.name + ".";
     } else {
-        results.innerHTML = "Wrong! It was " + quiz.questions[questionNo].options[quiz.questions[questionNo].answer] + "!";
+        results.innerHTML = "Wrong! The answer was " + data.name + ".";
     }
 
     // add a button to request the next question
     let nextButton = document.createElement('button');
+    nextButton.innerHTML = "Next Question";
     nextButton.id = "next-button";
     nextButton.className = "button";
     quizDiv.appendChild(nextButton);
 })
+
+// When the player clicks the next question button, request a new question
+let next = document.getElementById("next-button");
+next.addEventListener("click", () => {
+    removeQuestion();
+    socket.emit('getquestion');
+    console.log("requesting next question");
+})
+
+// When Max Questions is reached, display the final score
+
 
 // Function to remove intro when quiz starts
 function removeIntro() {

@@ -79,14 +79,18 @@ io.on('connection', (socket) => {
   socket.on('answer', (answer) => {
     console.log("answer submitted: " + answer);
     console.log("correct answer: " + quiz.questions[questionNo].answer);
+
+    // geet the NAME of the correct answer
+    let correctAnswer = quiz.questions[questionNo].options[quiz.questions[questionNo].answer];
+
     if (answer == quiz.questions[questionNo].answer) {
       console.log("correct!");
       currentScore++;
       console.log("current score: " + currentScore);
-      socket.emit("results", { answer: true });
+      socket.emit("results", { answer: true, name: correctAnswer });
     } else {
       console.log("incorrect!");
-      socket.emit('results', { answer: false });
+      socket.emit('results', { answer: false, name: correctAnswer });
     }
 
     // remove the question from the array so it can't be asked again
@@ -96,8 +100,6 @@ io.on('connection', (socket) => {
     if (currentQuestion < maxQuestions) {
       currentQuestion++;
       console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
-      console.log("asking another question");
-      io.emit('getquestion');
     } else {
       console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
       console.log("game over!");
