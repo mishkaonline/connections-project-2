@@ -12,7 +12,9 @@ body {
 
 /* styling for scoreboard, not sure why it isn't working */
 .scoreboard {
+    font-size: 1rem;
     position: fixed;
+    justify-content: right;
     top: 10px;
     right: 10px;
     background-color: rgba(0, 0, 0, 0.5);
