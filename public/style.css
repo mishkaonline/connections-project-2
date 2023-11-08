@@ -4,6 +4,12 @@ body {
     color: #1B1C21;
 }
 
+/* EXPERIMENT - Serving a Webfont */
+@font-face {
+    font-family: 'NaN Jaune';
+    src: url('./fonts/NaNJaune-Midi-Var.woff2');
+}
+
 /* styling for scoreboard, not sure why it isn't working */
 .scoreboard {
     position: fixed;
@@ -43,8 +49,7 @@ body {
     text-align: center;
 }
 
-/*styling name submission button*/
-#submit-button {
+button {
     background-color: #1B1C21;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
@@ -59,28 +64,7 @@ body {
     /* smooth transition for color change */
 }
 
-#submit-button:hover {
-    background-color: #588157;
-    color: white;
-}
-
-/*styling get-a-question button*/
-#get-question {
-    background-color: #1B1C21;
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    color: white;
-    border-radius: 18px;
-    /* rounded edges*/
-    border: none;
-    padding: 9px 18px;
-    /* button pading */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    /* smooth transition for color change */
-}
-
-#get-question:hover {
+button:hover {
     background-color: #588157;
     color: white;
 }
@@ -108,7 +92,7 @@ body {
     font-family: 'NaN Jaune', 'Space Mono', monospace;
     font-size: 3rem;
     width: 80%;
-    /* font-weight: 300; */
+    font-weight: 300;
 }
 
 /* Styling Option Section */
@@ -139,4 +123,9 @@ body {
     cursor: pointer;
     transition: 0.2s;
     box-shadow: rgba(27, 28, 33, 0.25) 0px 13px 27px -5px, rgba(27, 28, 33, 0.3) 0px 8px 16px -8px;
+}
+
+.selected {
+    background-color: #FBEBDD;
+    border: 3px solid #1b1c21;
 }
