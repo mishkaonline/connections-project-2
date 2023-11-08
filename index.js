@@ -43,6 +43,9 @@ io.on('connection', (socket) => { // when a new user connects
   socket.on('new user', (name) => {
     console.log('Our new player is called: ' + name);
     users[userID].name = name; // add the name to the user's object
+
+    // add score to user object?
+
     console.log(users);
     io.emit('user scores', users); // Why do we do it both here and above?
   });
@@ -68,6 +71,7 @@ io.on('connection', (socket) => { // when a new user connects
 
   });
 
+  // Update the scoreboard when user data received?
 
 
 });
@@ -80,7 +84,7 @@ io.on('connection', (socket) => {
     console.log("answer submitted: " + answer);
     console.log("correct answer: " + quiz.questions[questionNo].answer);
 
-    // geet the NAME of the correct answer
+    // get the NAME of the correct answer
     let correctAnswer = quiz.questions[questionNo].options[quiz.questions[questionNo].answer];
 
     if (answer == quiz.questions[questionNo].answer) {
@@ -92,6 +96,7 @@ io.on('connection', (socket) => {
       console.log("incorrect!");
       socket.emit('results', { answer: false, name: correctAnswer });
     }
+
 
     // remove the question from the array so it can't be asked again
     quiz.questions.splice(questionNo, 1);
@@ -105,8 +110,7 @@ io.on('connection', (socket) => {
       console.log("game over!");
       io.emit('gameOver', { score: currentScore, max: maxQuestions });
     }
-
-
+    io.emit('user scores', users);
 
   })
 });
