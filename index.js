@@ -103,7 +103,7 @@ io.on('connection', (socket) => {
     } else {
       console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
       console.log("game over!");
-      io.emit('gameover', currentScore);
+      io.emit('gameOver', { score: currentScore, max: maxQuestions });
     }
 
 
