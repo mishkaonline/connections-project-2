@@ -1,5 +1,6 @@
 let socket = io();
 let isAnswered = false; // boolean to check if player has answered the question
+let introVisible = true; // boolean to check if intro is visible
 //socket.emit('new user', "test");
 
 const submitButton = document.getElementById("submit-button");
@@ -109,15 +110,15 @@ socket.on('results', (data) => {
     nextButton.id = "next-button";
     nextButton.className = "button";
     quizDiv.appendChild(nextButton);
+
+    // When the player clicks the next question button, request a new question
+    nextButton.addEventListener("click", () => {
+        removeQuestion();
+        socket.emit('getquestion');
+        console.log("requesting next question");
+    })
 })
 
-// When the player clicks the next question button, request a new question
-const nextQuestion = document.getElementById("next-button");
-nextQuestion.addEventListener("click", () => {
-    removeQuestion();
-    socket.emit('nextquestion');
-    console.log("requesting next question");
-})
 
 // When Max Questions is reached, display the final score
 socket.on('gameover', (data) => {
@@ -133,8 +134,11 @@ socket.on('gameover', (data) => {
 
 // Function to remove intro when quiz starts
 function removeIntro() {
-    let intro = document.getElementById('intro');
-    intro.remove();
+    if (introVisible) {
+        let intro = document.getElementById('intro');
+        intro.remove();
+        introVisible = false;
+    }
 }
 
 // Function to remove question when next question loaded
@@ -145,4 +149,6 @@ function removeQuestion() {
     options.remove();
     let results = document.getElementById('results');
     results.remove();
+    let nextButton = document.getElementById('next-button');
+    nextButton.remove();
 }
