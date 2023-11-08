@@ -2,7 +2,6 @@ let socket = io();
 let isAnswered = false; // boolean to check if player has answered the question
 //socket.emit('new user', "test");
 
-
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => {
 
@@ -11,6 +10,20 @@ submitButton.addEventListener("click", () => {
     socket.emit('new user', playerName);
 
 })
+
+// create/update the scoreboard when user data received
+socket.on('user scores', (users) => {
+    const scoreboard = document.getElementById('scoreboard');
+    scoreboard.innerHTML = '';
+
+    Object.keys(users).forEach((userID) => {
+        const user = users[userID];
+        const scoreElement = document.createElement('div');
+        scoreElement.className = 'score';
+        scoreElement.textContent = `${user.name}: ${user.score || 0}`;
+        scoreboard.appendChild(scoreElement);
+    });
+});
 
 // Test button to request a question (eventually, have this triggered by submitting your name)
 const questionButton = document.getElementById("get-question");
