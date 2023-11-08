@@ -34,11 +34,10 @@ socket.on('question', (question, options) => {
     //create new div for question and add a paragraph with the question text
     let quizDiv = document.getElementById('quiz');
     let questionText = document.createElement('p');
-    quizDiv.id = "question";
-    quizDiv.className = "question";
+    questionText.id = "question";
+    questionText.className = 'question';
     questionText.innerHTML = question;
     quizDiv.appendChild(questionText);
-    document.body.appendChild(quizDiv);
 
     //create new div for options
     let optionsDiv = document.createElement('div');
