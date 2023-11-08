@@ -1,4 +1,5 @@
 let socket = io();
+let isAnswered = false; // boolean to check if player has answered the question
 //socket.emit('new user', "test");
 
 
@@ -25,6 +26,7 @@ socket.on('user scores', (data) => {
 
 // When we receive a question, display it
 socket.on('question', (question, options) => {
+    isAnswered = false;
     removeIntro();
     console.log(question);
     console.log(options);
@@ -57,6 +59,16 @@ socket.on('question', (question, options) => {
         // add option text below the avatar
         option.innerHTML = options[i];
         optionsDiv.appendChild(option);
+
+        // when player selects answer
+        let optionButton = document.getElementById("option" + i);
+        optionButton.onclick = function () {
+            if (!isAnswered) {
+                socket.emit("answer", i);
+                console.log("Player answered: " + i);
+                isAnswered = true;
+            }
+        }
     }
 
 })
