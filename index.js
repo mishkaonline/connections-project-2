@@ -35,7 +35,7 @@ const users = {} // object to store names and scores
 io.on('connection', (socket) => { // when a new user connects
   console.log("we have a new player: " + socket.id);
 
-  io.emit('user scores', users); // send an object  with key "user scores" and value [all online players] to everyone
+  io.emit('user scores', users); // send an object with key "user scores" and value [all online players] to everyone
   const userID = socket.id; // store the user's socket id in a constant
   users[userID] = {}; // create an empty object for the user in the users object
 
