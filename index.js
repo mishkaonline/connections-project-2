@@ -58,7 +58,7 @@ io.on('connection', (socket) => { // when a new user connects
   socket.on('getquestion', () => {
     console.log("question requested");
 
-    // send a random question to the user
+    // Get a random question from our array
     questionNo = Math.floor(Math.random() * quiz.questions.length);
     console.log(questionNo);
 
