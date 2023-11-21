@@ -2,212 +2,79 @@
     "questions": [
         {
             "question": "I went to the same high school as Madonna.",
-            "options": [
-                "Ruta",
-                "Ryan",
-                "Anastasia",
-                "Amber",
-                "Elisabeth"
-            ],
-            "answer": 1
+            "answer": "Ryan"
         },
         {
             "question": "I got my butt kicked by Jean Claude Van Damme.",
-            "options": [
-                "Pim",
-                "Anastasia",
-                "Ruta",
-                "Robi",
-                "Caity"
-            ],
-            "answer": 2
+            "answer": "Ruta"
         },
         {
             "question": "I once danced for 30 hours straight without caffeine (or drugs).",
-            "options": [
-                "Caity",
-                "Mishka",
-                "Liyanbing",
-                "Anastasia",
-                "Robi"
-            ],
-            "answer": 3
+            "answer": "Anastasia"
         },
         {
             "question": "I have a fish named Bully, and he follows & swims alongside my finger.",
-            "options": [
-                "Amber",
-                "Maryse",
-                "Liyanbing",
-                "Elisabeth",
-                "Ryan"
-            ],
-            "answer": 0
+            "answer": "Amber"
         },
         {
             "question": "I was on the show Blue's Clues as a little kid.",
-            "options": [
-                "Robi",
-                "Elisabeth",
-                "Caity",
-                "Mishka",
-                "Annika"
-            ],
-            "answer": 1
+            "answer": "Elisabeth"
         },
         {
             "question": "My ancestors are from five continents.",
-            "options": [
-                "Ruta",
-                "Annika",
-                "Elisabeth",
-                "Anastasia",
-                "Maryse"
-            ],
-            "answer": 2
+            "answer": "Elisabeth"
         },
         {
             "question": "I play the banjo.",
-            "options": [
-                "Ryan",
-                "Mishka",
-                "Elisabeth",
-                "Pim",
-                "Anastasia"
-            ],
-            "answer": 2
+            "answer": "Elisabeth"
         },
         {
             "question": "I can make my tongue look like it's split down the middle.",
-            "options": [
-                "Ruta",
-                "Elisabeth",
-                "Liyanbing",
-                "Amber",
-                "Maryse"
-            ],
-            "answer": 1
+            "answer": "Elisabeth"
         },
         {
             "question": "I used to snore so loud that I had to get surgery to fix it",
-            "options": [
-                "Ruta",
-                "Robi",
-                "Pim",
-                "Amber",
-                "Ryan"
-            ],
-            "answer": 1
+            "answer": "Robi"
         },
         {
             "question": "On my 18th birthday I was arrested for vandalizing a police car.",
-            "options": [
-                "Annika",
-                "Maryse",
-                "Caity",
-                "Ryan",
-                "Mishka"
-            ],
-            "answer": 0
+            "answer": "Annika"
         },
         {
             "question": "I have haunting dreams about penguins sometimes.",
-            "options": [
-                "Amber",
-                "Maryse",
-                "Robi",
-                "Pim",
-                "Liyanbing"
-            ],
-            "answer": 3
+            "answer": "Pim"
         },
         {
             "question": "I nearly slept on the hotel floor of a now 3x Grammy winning artist back when I was a teen..",
-            "options": [
-                "Ryan",
-                "Pim",
-                "Caity",
-                "Mishka",
-                "Anastasia"
-            ],
-            "answer": 1
+            "answer": "Pim"
         },
         {
             "question": "I was in a horse stampede and barely survived. ",
-            "options": [
-                "Maryse",
-                "Caity",
-                "Amber",
-                "Ruta",
-                "Ryan"
-            ],
-            "answer": 1
+            "answer": "Caity"
         },
         {
             "question": "I have Synaesthesia, Hypergraphia, etc. ",
-            "options": [
-                "Liyanbing",
-                "Anastasia",
-                "Caity",
-                "Elisabeth",
-                "Amber"
-            ],
-            "answer": 2
+            "answer": "Caity"
         },
         {
             "question": "I don't know how to ride a bicycle.",
-            "options": [
-                "Mishka",
-                "Anastasia",
-                "Robi",
-                "Ryan",
-                "Maryse"
-            ],
-            "answer": 0
+            "answer": "Mishka"
         },
         {
             "question": "I auditioned for X-Factor USA and they told me I sing too quietly.",
-            "options": [
-                "Maryse",
-                "Mishka",
-                "Caity",
-                "Elisabeth",
-                "Amber"
-            ],
-            "answer": 0
+            "answer": "Maryse"
         },
         {
             "question": "I like to find stray kittens that have been abandoned by the cat mom, and raise it until I find them a new adoption family.",
-            "options": [
-                "Pim",
-                "Liyanbing",
-                "Ryan",
-                "Anastasia",
-                "Amber"
-            ],
-            "answer": 1
+            "answer": "Liyanbing"
         },
         {
             "question": "I make my own ice cream.",
-            "options": [
-                "Elisabeth",
-                "Caity",
-                "Ian",
-                "Maryse",
-                "Ruta"
-            ],
-            "answer": 2
+            "answer": "Ian"
         },
         {
             "question": "I once went through airport security with a bullet case in my boots.",
-            "options": [
-                "Elisabeth",
-                "Caity",
-                "Ian",
-                "Maryse",
-                "Maram"
-            ],
-            "answer": 4
+            "answer": "Maram"
         }
     ]
 }
