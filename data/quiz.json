@@ -186,6 +186,28 @@
                 "Amber"
             ],
             "answer": 1
+        },
+        {
+            "question": "I make my own ice cream.",
+            "options": [
+                "Elisabeth",
+                "Caity",
+                "Ian",
+                "Maryse",
+                "Ruta"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "I once went through airport security with a bullet case in my boots.",
+            "options": [
+                "Elisabeth",
+                "Caity",
+                "Ian",
+                "Maryse",
+                "Maram"
+            ],
+            "answer": 4
         }
     ]
 }
