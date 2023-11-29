@@ -1,0 +1,27 @@
+OK, let's figure out what we need to do:
+
+When the page loads:
+- Display start screen (type your name)
+- Capture the new user id
+- Create a users object
+
+Building the quiz from the database (server side):
+- Go through the array of questions and grab all the names ("answers")
+- Check for duplicates, toss them out
+- Create an array of all the answers
+
+When someone types in their name and presses the button:
+- Add the name to the user id
+- Add them to the users object
+- Set their score to zero
+- Trigger the start of the game (request question 1)
+
+When question requested
+- Check if the start stuff has been hidden, if not, hide it
+- Grab a random question
+- Grab the answer
+- Grab 4 other answers from the random array (while excluding the actual answer)
+- Shuffle the 5 answers
+- Send Q + 5as over to Client
+
+(Client) When Q+5As received:
