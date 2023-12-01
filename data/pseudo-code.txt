@@ -3,25 +3,77 @@ OK, let's figure out what we need to do:
 When the page loads:
 - Display start screen (type your name)
 - Capture the new user id
-- Create a users object
+- Create a users object (contains score)
+- Emit all users currently connected
+
+(Client) Listener
+- Listen for emit with userid and score
+
+Disconnect
+- Get rid of that user
 
 Building the quiz from the database (server side):
 - Go through the array of questions and grab all the names ("answers")
 - Check for duplicates, toss them out
-- Create an array of all the answers
+- Create an array of all the answers (different array to Questions)
 
 When someone types in their name and presses the button:
 - Add the name to the user id
 - Add them to the users object
 - Set their score to zero
 - Trigger the start of the game (request question 1)
-
-When question requested
 - Check if the start stuff has been hidden, if not, hide it
-- Grab a random question
+
+- Shuffle all questions
+
+// QUESTION LOOP
+
+(Server) When question requested
+- Grab first question
 - Grab the answer
 - Grab 4 other answers from the random array (while excluding the actual answer)
 - Shuffle the 5 answers
 - Send Q + 5as over to Client
+- Shift (remove first element) Q&A pair from object
+
+(It's easier to process data on the client than the server, we can do all the stuff above on client side, it just means people can peek at the answers)
 
 (Client) When Q+5As received:
+- Build question page (innerHTML)
+- Track which answer is clicked and change the CSS
+- Send which answer was selected to server
+
+(Server) When Answer received
+- Check if it's correct
+- If correct, score ++
+- Emit updated score
+- Send back whether it's correct or not
+
+(Client) When score received
+- Display whether answer was correct or not
+- Button to go to next question (or just time delay?)
+
+(Server) When next question requested
+- Current question ++
+- Check if current question < max questions
+- If true, repeat question loop
+- If false, end game
+
+GAME END SEQUENCE
+- Display score
+- Display some sort of pithy message based on score (e.g. "do you even go here?" if you got zero points)
+- Create a "Play Again" button
+- Display leaderboard here?
+
+Leaderboard
+- Keep a record on the DB of every user that's ever connected
+- Sort by score
+- Display top X
+
+MISC
+- Have an "about page" or a footer
+    - This could link to documentation (Eric does this really well)
+- Have a way to add your fun fact to the database
+- Push straight to MongoDB!
+- BUT, do we need to automate Avatars? Maybe have a conditional that says if no avatar with matching name, use the generic one?
+
