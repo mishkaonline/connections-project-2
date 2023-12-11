@@ -1,16 +1,7 @@
 const express = require('express');
-const { createServer } = require('node:http');
-const { join } = require('node:path');
+const { createServer } = require('http');
+// const { join } = require('node:path');
 const { Server } = require('socket.io');
-let quiz = require('./data/quiz.json'); // import questions from quiz.json
-
-//Variables
-let questionNo = 0; // used to select a question from the array
-
-const maxQuestions = 5; // maximum number of questions to ask per game
-let currentQuestion = 0; // current question number
-let currentScore = 0; // current score for player
-
 
 //Initialise HTTP Server
 const app = express();
@@ -23,15 +14,49 @@ server.listen(port, () => {
 //Initialise Socket.io
 const io = new Server(server);
 
+app.use('/', express.static('public')); // Serve index.html via Express
 
+// Serve About and Submit Pages via Express
+app.use('/about', express.static('public/about.html'));
+app.use('/submit', express.static('public/submit.html'));
 
-// app.get('/', (req, res) => {
-//   res.sendFile(join(__dirname, 'index.html'));
-// });
-
-app.use('/', express.static('public'));
+// Body Parser to Parse JSON Data
+app.use(express.json());
 
 const users = {} // object to store names and scores
+
+// Connect to MongoDB via QuickMongo
+const { Database } = require('quickmongo');
+
+// DO NOT COMMIT WITH PASSWORD! On Glitch, we can use .env to store the password as process.env.password
+const db = new Database("mongodb+srv://mishka-nuff:process.env.password@funfacts.yf15izp.mongodb.net/?retryWrites=true&w=majority");
+
+db.on("ready", () => {
+  console.log("db connected!");
+}
+);
+
+db.connect();
+console.log("db connected part two!");
+
+// add route to get all questions from database
+app.get('/getQuestions', async (req, res) => {
+  try {
+    // Fetch from the DB using await
+    const questions = await db.get("questions");
+    console.log(questions);
+    if (!questions) {
+      return res.status(404).json({ error: "No questions found" });
+    }
+    let obj = { questions };
+    res.json(obj);
+  } catch (error) {
+    console.error("Error fetching questions:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Connecting and Disconnecting Sockets
 
 io.on('connection', (socket) => { // when a new user connects
   console.log("we have a new player: " + socket.id);
@@ -44,86 +69,34 @@ io.on('connection', (socket) => { // when a new user connects
     console.log('Our new player is called: ' + name);
     users[userID].name = name; // add the name to the user's object
 
-    // add score to user object?
+    // listen for user scores and update the users object
+    socket.on('user scores', (score) => {
+      console.log('User scores: ' + score);
+      users[userID].score = score; // add the score to the user's object
 
-    console.log(users);
-    io.emit('user scores', users); // Why do we do it both here and above?
-  });
-  socket.on('disconnect', () => {
-    delete users[userID]; // remove a player from the users object when they disconnect
-    console.log(users);
-  });
+      console.log(users);
+      io.emit('user scores', users); // Why do we do it both here and above?
+    });
 
-  // When client requests a question, send a random question
-  socket.on('getquestion', () => {
-    console.log("question requested");
-
-    // Get a random question from our array
-    questionNo = Math.floor(Math.random() * quiz.questions.length);
-    console.log(questionNo);
-
-    // send the question and options to client
-    io.emit('question', quiz.questions[questionNo].question, quiz.questions[questionNo].options);
-
-    // log what we sent
-    console.log(quiz.questions[questionNo].question);
-    console.log(quiz.questions[questionNo].options);
+    socket.on('disconnect', () => {
+      delete users[userID]; // remove a player from the users object when they disconnect
+      console.log(users);
+    });
 
   });
-
-  // Update the scoreboard when user data received?
-
-
 });
 
-io.on('connection', (socket) => {
-  console.log('input socket connected : ' + socket.id);
+// SUBMITTING FUN FACTS - WORKS!
 
-  // When client submits an answer, check if it's correct
-  socket.on('answer', (answer) => {
-    console.log("answer submitted: " + answer);
-    console.log("correct answer: " + quiz.questions[questionNo].answer);
+// Listen for a Post Request to /submit
+app.post('/funFact', (req, res) => {
+  console.log("submitting a fun fact");
 
-    // get the NAME of the correct answer
-    let correctAnswer = quiz.questions[questionNo].options[quiz.questions[questionNo].answer];
+  console.log(req.body); // req.body is the data sent from the client, an object with keys "question" and "answer"
 
-    if (answer == quiz.questions[questionNo].answer) {
-      console.log("correct!");
-      currentScore++;
-      console.log("current score: " + currentScore);
-      socket.emit("results", { answer: true, name: correctAnswer });
-    } else {
-      console.log("incorrect!");
-      socket.emit('results', { answer: false, name: correctAnswer });
-    }
+  // Add a fun fact to the database
+  db.push("questions", req.body);
 
+  res.json({ task: "success" });
 
-    // remove the question from the array so it can't be asked again
-    quiz.questions.splice(questionNo, 1);
-
-    // check if we've reached the maximum number of questions
-    if (currentQuestion < maxQuestions) {
-      currentQuestion++;
-      console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
-    } else {
-      console.log(currentQuestion + " out of " + maxQuestions + " questions asked");
-      console.log("game over!");
-      io.emit('gameOver', { score: currentScore, max: maxQuestions });
-    }
-    io.emit('user scores', users);
-
-  })
 });
-
-
-
-// async function getQuestions() {
-//   return fetch('data/quiz.json').then(res => res.json())
-//     .then(data => {
-//       console.log(data);
-//       return data;
-//     })
-//     .catch((error) => {
-//       console.error('Error:', error);
-//     });
-// }

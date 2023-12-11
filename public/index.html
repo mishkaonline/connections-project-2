@@ -13,13 +13,36 @@
 </head>
 
 <body>
-   <div id="scoreboard" class="score"></div>
+    <!-- Header with Menu Button (Hamburger) -->
+
+    <!-- Overlay Menu -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="/index.html">Play Now</a>
+            <a href="/about.html">About the Game</a>
+            <a href="/submit.html">Submit a Fact</a>
+            <p>✌️ by <a href="">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
+        </div>
+
+    </div>
+
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <span onclick="openNav()">open</span>
+
+    <!-- Scoreboard (probably move into header?) -->
+    <div id="scoreboard" class="score"></div>
     <div id="intro" class="registration-container container">
         <h1>In Their Own Words</h1>
-        <p>Are you ready to unravel some delightful dragonfruit mysteries? Prove who knows our classmates best in this
+        <p>Are you ready to unravel some delightful dragonfruit mysteries? Prove who knows our classmates best in
+            this
             spirited challenge of wit and friendship! Enter your name to begin.</p>
         <div>
-            <input id="name-field" type="text" textbox="enter your name"></input>
+            <input class="field" id="name-field" type="text" textbox="enter your name"></input>
             <button id="submit-button" class="button">let's go!</button>
 
         </div>

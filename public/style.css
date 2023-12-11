@@ -71,15 +71,8 @@ button:hover {
     color: white;
 }
 
-#name-field {
-    font-family: 'Space Mono', monospace;
-    background-color: #DBE4FB;
-    font-size: 1rem;
-    width: 200px;
-    padding: 8px;
-    border: 1px solid #1B1C21;
-    border-radius: 15px;
-}
+
+/* QUIZ */
 
 /* Styling Question */
 #quiz {
@@ -130,4 +123,139 @@ button:hover {
 .selected {
     background-color: #FBEBDD;
     border: 3px solid #1b1c21;
+}
+
+.correct {
+    background-color: #DBE4FB;
+    border: 3px solid #6CDA7E;
+}
+
+.incorrect {
+    background-color: #DBE4FB;
+    border: 3px solid #FF525C;
+}
+
+/* Styling Option Content */
+.option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+}
+
+.option p {
+    position: relative;
+    margin-top: -30px;
+    margin-left: 8px;
+    background-color: #dbe4fb;
+    border-radius: 8px;
+}
+
+/* Overlay Menu */
+/* BG */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 0;
+    width: 100%;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%;
+    /* 25% from the top */
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/* FORMS */
+
+.field {
+    font-family: 'Space Mono', monospace;
+    background-color: #DBE4FB;
+    font-size: 1rem;
+    /* width: 200px; */
+    padding: 8px;
+    border: 1px solid #1B1C21;
+    border-radius: 15px;
+}
+
+/* Make the Submit Form Stack but left-aligned */
+.form-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Group labels and fields, add spacing between pairs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+/* Success Message */
+.success {
+    background-color: #1B1C21;
+    color: #DBE4FB;
+    font-size: 1rem !important;
+    width: auto !important;
+    padding: 0.25rem;
 }
