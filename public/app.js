@@ -94,7 +94,14 @@ window.addEventListener('load', () => {
 
         //create new div for question and add a paragraph with the question text
         let quizDiv = document.getElementById('quiz');
+        let questionProgress = document.createElement('h3');
         let questionText = document.createElement('p');
+
+        questionProgress.id = "question-progress";
+        questionProgress.className = 'progress';
+        questionProgress.innerHTML = "Question " + (currentQuestion + 1) + " of " + maxQuestions;
+        quizDiv.appendChild(questionProgress);
+
         questionText.id = "question";
         questionText.className = 'question';
         questionText.innerHTML = question;
@@ -362,6 +369,12 @@ window.addEventListener('load', () => {
 
     // Function to remove question when next question loaded
     function removeQuestion() {
+
+        let questionProgress = document.getElementById('question-progress');
+        if (questionProgress) {
+            questionProgress.remove();
+        }
+
         let question = document.getElementById('question');
         if (question) {
             question.remove();
@@ -434,5 +447,25 @@ window.addEventListener('load', () => {
         // }
     }
 
+    // Open Menu
+    document.getElementById('menu-button').addEventListener('click', () => {
+        openNav();
+        console.log("menu button clicked");
+    });
+
+    //Close Menu
+    document.getElementById('close-button').addEventListener('click', () => {
+        closeNav();
+        console.log("menu button clicked");
+    });
 
 })
+
+// NAV FUNCTIONS
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}

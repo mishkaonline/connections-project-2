@@ -10,9 +10,10 @@
 - [ ] Full-screen Menu
 - [ ] Add a leaderboard?
 - [x] End the game! Doesn’t quite work right now.
-  - [ ] Design this screen
+  - [ ] Styling this screen
 - [ ] Design a footer, about page or other context section
 - [ ] Audio?
 - [ ] New Avatars for folks who submitted
 - [x] Find a way to use a mystery/silhouette avatar for anybody who doesn’t have one
 - [x] Environment variables locally and on Github
+- [x] Add question number before each question (to be updated to progress bar later?)

@@ -1,6 +1,14 @@
 window.addEventListener('load', () => {
+
+    // Open Menu
     document.getElementById('menu-button').addEventListener('click', () => {
         openNav();
+        console.log("menu button clicked");
+    });
+
+    //Close Menu
+    document.getElementById('close-button').addEventListener('click', () => {
+        closeNav();
         console.log("menu button clicked");
     });
 
@@ -40,5 +48,9 @@ window.addEventListener('load', () => {
 });
 
 function openNav() {
-    document.getElementById("myNav").style.width = "100%";
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
 }

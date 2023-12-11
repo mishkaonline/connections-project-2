@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,36 @@
         rel="stylesheet">
     <link href="style.css" rel="stylesheet" />
 </head>
+
 <body>
-    
+    <!-- HEADER WITH MENU BUTTON -->
+
+    <!-- Overlay Menu -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <img src="/img/icon_close.svg" alt="close menu" id="close-button" />
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="/">Play Now</a>
+            <a href="about.html">About the Game</a>
+            <a href="submit.html">Submit a Fact</a>
+            <p class="credits">✌️ by <a href="">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
+        </div>
+
+    </div>
+
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <img src="/img/icon_menu.svg" alt="open menu" id="menu-button">
+
+    <!-- PAGE CONTENT -->
+
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="submit.js"></script>
+
 </body>
+
 </html>
