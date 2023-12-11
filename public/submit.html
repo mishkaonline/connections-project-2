@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Fun Fact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- HEADER WITH MENU BUTTON -->
+
+    <!-- Overlay Menu -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <img src="/img/icon_close.svg" alt="close menu" onclick="closeNav()" />
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#">Play Now</a>
+            <a href="#">About the Game</a>
+            <a href="#">Submit a Fact</a>
+            <p>✌️ by <a href="">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
+        </div>
+
+    </div>
+
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <img src="/img/icon_menu.svg" alt="open menu" onclick="openNav()">
+
+    <!-- PAGE CONTENT -->
+    <div id="intro" class="registration-container container">
+        <h1>Submit a Fun Fact</h1>
+        <p>Here's some preamble about adding facts to the game.</p>
+        <div id="submit-form" class="form-stack">
+            <div class="form-group">
+                <label for="name">Just your <em>first</em> name, we're all friends here.</label>
+                <input type="text" id="name" class="field" name="name"
+                    placeholder="e.g. Yoshitaka, Taniqua, Fitzgerald">
+            </div>
+            <div class="form-group">
+                <label for="fact">Your fun fact—onen sentence should do. Please punctuate!</label>
+                <input type="text" id="fact" class="field" name="fact" placeholder="e.g. 'I have three thumbs.'">
+            </div>
+            <button id="submit-button" class="button">Submit</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="submit.js"></script>
+</body>
+
+</html>
