@@ -44,6 +44,9 @@ window.addEventListener('load', () => {
         const playerName = document.getElementById('name-field').value; // set playerName to what was just typed in the field
         socket.emit('new user', playerName);
 
+        // Display the user name and current score (zero) 
+        socket.emit('user scores', currentScore);
+
         // Start the Quiz
         console.log("starting the quiz");
 
@@ -154,11 +157,11 @@ window.addEventListener('load', () => {
                     currentScore++; // add 1 to the score
                     console.log("current score: " + currentScore);
 
-                    // set the user's score in the users object
+                    // set the user's score in the users object NOT WORKING
                     // users[userID].score = currentScore;
 
-                    // emit the updated score to the server
-                    socket.emit('user scores', { score: currentScore });
+                    // emit the updated score to the server NOT WORKING
+                    socket.emit('user scores', currentScore);
                 }
 
                 // If the selected option is incorrect
@@ -268,13 +271,14 @@ window.addEventListener('load', () => {
         // create a div for the buttons
         let buttonGroup = document.createElement('div');
         buttonGroup.id = "button-group";
+        buttonGroup.className = "button-group";
         quizDiv.appendChild(buttonGroup);
 
         // add a button to play again
         let playAgainButton = document.createElement('button');
         playAgainButton.innerHTML = "Play Again";
         playAgainButton.id = "play-again";
-        playAgainButton.className = "button";
+        // playAgainButton.className = "button";
         buttonGroup.appendChild(playAgainButton);
 
         // When the player clicks the play again button, reset the game
@@ -291,7 +295,7 @@ window.addEventListener('load', () => {
         let funFactButton = document.createElement('button');
         funFactButton.innerHTML = "Submit a Fun Fact";
         funFactButton.id = "fun-fact";
-        funFactButton.className = "button";
+        funFactButton.className = "button-secondary";
         buttonGroup.appendChild(funFactButton);
 
         // link submit button to /submit page
@@ -304,7 +308,7 @@ window.addEventListener('load', () => {
         let leaderboardButton = document.createElement('button');
         leaderboardButton.innerHTML = "View Leaderboard";
         leaderboardButton.id = "leaderboard";
-        leaderboardButton.className = "button";
+        leaderboardButton.className = "button-secondary";
         buttonGroup.appendChild(leaderboardButton);
 
         // When the player clicks the leaderboard button, display the leaderboard
@@ -323,6 +327,9 @@ window.addEventListener('load', () => {
 
         Object.keys(users).forEach((userID) => {
             const user = users[userID];
+            if (!user.name) {
+                return;
+            }
             const scoreElement = document.createElement('div');
             scoreElement.className = 'score';
             scoreElement.textContent = `${user.name}: ${user.score || 0}`;
@@ -387,6 +394,11 @@ window.addEventListener('load', () => {
 
     // Function to clear the game over screen
     function clearGameover() {
+
+        let gameOver = document.getElementById('game-over');
+        if (gameOver) {
+            gameOver.remove();
+        }
         let results = document.getElementById('results');
         if (results) {
             results.remove();
@@ -395,18 +407,31 @@ window.addEventListener('load', () => {
         if (message) {
             message.remove();
         }
-        let playAgainButton = document.getElementById('play-again');
-        if (playAgainButton) {
-            playAgainButton.remove();
+        let score = document.getElementById('score');
+        if (score) {
+            score.remove();
         }
-        let funFactButton = document.getElementById('fun-fact');
-        if (funFactButton) {
-            funFactButton.remove();
+        let outOf = document.getElementById('out-of');
+        if (outOf) {
+            outOf.remove();
         }
-        let leaderboardButton = document.getElementById('leaderboard');
-        if (leaderboardButton) {
-            leaderboardButton.remove();
+        let buttonGroup = document.getElementById('button-group');
+        if (buttonGroup) {
+            buttonGroup.remove();
         }
+
+        // let playAgainButton = document.getElementById('play-again');
+        // if (playAgainButton) {
+        //     playAgainButton.remove();
+        // }
+        // let funFactButton = document.getElementById('fun-fact');
+        // if (funFactButton) {
+        //     funFactButton.remove();
+        // }
+        // let leaderboardButton = document.getElementById('leaderboard');
+        // if (leaderboardButton) {
+        //     leaderboardButton.remove();
+        // }
     }
 
 

@@ -1,4 +1,9 @@
 window.addEventListener('load', () => {
+    document.getElementById('menu-button').addEventListener('click', () => {
+        openNav();
+        console.log("menu button clicked");
+    });
+
     document.getElementById('submit-button').addEventListener('click', () => {
         let answer = document.getElementById('name').value;
         let question = document.getElementById('fact').value;
@@ -33,3 +38,7 @@ window.addEventListener('load', () => {
             })
     });
 });
+
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}

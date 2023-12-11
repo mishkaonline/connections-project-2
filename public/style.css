@@ -71,6 +71,25 @@ button:hover {
     color: white;
 }
 
+.button-secondary {
+    background-color: #BFD0FC;
+    color: #1B1C21;
+    border: 1px solid #1B1C21;
+}
+
+.button-secondary:hover {
+    border: 1px solid #588157;
+    color: #588157;
+}
+
+/* Horizontal Button Groups  */
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
 
 /* QUIZ */
 

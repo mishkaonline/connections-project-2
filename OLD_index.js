@@ -40,7 +40,7 @@ const users = {} // object to store names and scores
 // Connect to MongoDB via QuickMongo
 const { Database } = require('quickmongo');
 
-// DO NOT COMMIT WITH PASSWORD! On Glitch, we can use .env to store the password as process.env.password
+// Deprecated Key, using environment variable now
 const db = new Database("mongodb+srv://mishka-nuff:dnWcNzy5fgp7c1jB@funfacts.yf15izp.mongodb.net/?retryWrites=true&w=majority");
 
 db.on("ready", () => {

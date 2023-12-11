@@ -2,6 +2,8 @@ const express = require('express');
 const { createServer } = require('http');
 // const { join } = require('node:path');
 const { Server } = require('socket.io');
+const dotenv = require('dotenv');
+dotenv.config();
 
 //Initialise HTTP Server
 const app = express();
@@ -28,16 +30,17 @@ const users = {} // object to store names and scores
 // Connect to MongoDB via QuickMongo
 const { Database } = require('quickmongo');
 
-// DO NOT COMMIT WITH PASSWORD! On Glitch, we can use .env to store the password as process.env.password
-const db = new Database("mongodb+srv://mishka-nuff:process.env.password@funfacts.yf15izp.mongodb.net/?retryWrites=true&w=majority");
+// New Key using environment variable
+console.log(process.env.mongodburl);
+const db = new Database(process.env.mongodburl);
 
 db.on("ready", () => {
-  console.log("db connected!");
+  console.log("db ready!");
 }
 );
 
 db.connect();
-console.log("db connected part two!");
+console.log("db connected!");
 
 // add route to get all questions from database
 app.get('/getQuestions', async (req, res) => {
@@ -69,20 +72,19 @@ io.on('connection', (socket) => { // when a new user connects
     console.log('Our new player is called: ' + name);
     users[userID].name = name; // add the name to the user's object
 
-    // listen for user scores and update the users object
-    socket.on('user scores', (score) => {
-      console.log('User scores: ' + score);
-      users[userID].score = score; // add the score to the user's object
+  });
+  // listen for user scores and update the users object
+  socket.on('user scores', (score) => {
+    console.log('User scores: ' + score);
+    users[userID].score = score; // add the score to the user's object
 
-      console.log(users);
-      io.emit('user scores', users); // Why do we do it both here and above?
-    });
+    console.log(users);
+    io.emit('user scores', users); // Why do we do it both here and above?
+  });
 
-    socket.on('disconnect', () => {
-      delete users[userID]; // remove a player from the users object when they disconnect
-      console.log(users);
-    });
-
+  socket.on('disconnect', () => {
+    delete users[userID]; // remove a player from the users object when they disconnect
+    console.log(users);
   });
 });
 

@@ -24,16 +24,16 @@
 
         <!-- Overlay content -->
         <div class="overlay-content">
-            <a href="#">Play Now</a>
-            <a href="#">About the Game</a>
-            <a href="#">Submit a Fact</a>
+            <a href="/">Play Now</a>
+            <a href="about.html">About the Game</a>
+            <a href="submit.html">Submit a Fact</a>
             <p>✌️ by <a href="">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
         </div>
 
     </div>
 
     <!-- Use any element to open/show the overlay navigation menu -->
-    <img src="/img/icon_menu.svg" alt="open menu" onclick="openNav()">
+    <img src="/img/icon_menu.svg" alt="open menu" id="menu-button">
 
     <!-- PAGE CONTENT -->
     <div id="intro" class="registration-container container">
@@ -49,7 +49,13 @@
                 <label for="fact">Your fun fact—onen sentence should do. Please punctuate!</label>
                 <input type="text" id="fact" class="field" name="fact" placeholder="e.g. 'I have three thumbs.'">
             </div>
-            <button id="submit-button" class="button">Submit</button>
+            <div class="form-group">
+                <button id="submit-button">Submit</button>
+            </div>
+            <div class="form-group">
+                <button id="home-button" class="button-secondary" onclick="window.location.href='/';">Back to
+                    Quiz</button>
+            </div>
         </div>
     </div>
 
