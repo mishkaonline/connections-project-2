@@ -135,7 +135,11 @@ window.addEventListener('load', () => {
 
             // if the image fails to load, use the default avatar
             avatarImg.onerror = function () {
-                this.src = "./avatars/default.svg"; // Set the default image path
+                //pick a random number between 1 and 6
+                let randomAvatar = Math.floor(Math.random() * 6) + 1;
+
+                // set the image to one of six defaults
+                this.src = "./avatars/default" + randomAvatar + ".svg"; // Set the default image path
             };
 
             // append the image element to the option div
@@ -161,6 +165,21 @@ window.addEventListener('load', () => {
                     optionButton.classList.add("selected");
                     console.log("Player answered: " + i);
                     isAnswered = true;
+
+                    // disable buttons so you can't answer again
+                    for (let j = 0; j < options.length; j++) {
+                        let otherOption = document.getElementById("option" + j);
+                        otherOption.classList.add("disabled");
+                    }
+
+                    // fade the other options
+                    for (let j = 0; j < options.length; j++) {
+                        if (j != i) {
+                            let otherOption = document.getElementById("option" + j);
+                            otherOption.classList.add("faded");
+                        }
+                    }
+
                 }
 
                 // Check if the selected option is the correct answer
