@@ -14,17 +14,16 @@ h1 {
     font-family: 'NaN Jaune', 'Space Mono', monospace;
 }
 
-/* styling for scoreboard, not sure why it isn't working */
-.scoreboard {
-    font-size: 1rem;
+#scoreboard {
+    color: #1B1C21;
+    font-size: 1.1rem;
     position: fixed;
     justify-content: right;
+    background-color: #ffffff80;
     top: 10px;
     right: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .score {
@@ -55,36 +54,54 @@ h1 {
     text-align: center;
 }
 
+.about-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.about-container p {
+    font-size: 1.2rem;
+    width: 55%;
+    text-align: center;
+}
+
 button {
+    color: white;
     background-color: #1B1C21;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
-    color: white;
     border-radius: 18px;
-    /* rounded edges*/
     border: none;
     padding: 9px 18px;
-    /* button pading */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    /* smooth transition for color change */
 }
 
-button:hover :focus {
-    background-color: #588157;
+button:hover {
     color: white;
+    background-color: #588157;
+    cursor: pointer;
 }
 
 .button-secondary {
     background-color: #BFD0FC;
     color: #1B1C21;
     border: 1px solid #1B1C21;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.button-secondary:hover :focus {
-    background-color: #BFD0FC !important;
-    border: 1px solid #588157;
-    color: #588157;
+.button-secondary:hover {
+    color: white;
+    background-color: #1B1C21;
+    cursor: pointer;
 }
 
 /* Horizontal Button Groups  */
@@ -110,6 +127,13 @@ button:hover :focus {
     text-transform: uppercase;
     letter-spacing: 4px;
     margin: 0;
+}
+
+#results {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 30px;
 }
 
 .question {
@@ -157,12 +181,12 @@ button:hover :focus {
 
 .correct {
     background-color: #DBE4FB;
-    border: 3px solid #6CDA7E;
+    border: 4px solid #588157;
 }
 
 .incorrect {
     background-color: #DBE4FB;
-    border: 3px solid #FF525C;
+    border: 4px solid #D2515E;
 }
 
 /* Styling Option Content */
@@ -257,6 +281,19 @@ button:hover :focus {
     text-decoration: none;
     padding: 2px 4px;
     border-bottom: 1px dotted #BFD0FC;
+}
+
+#about-credits a {
+    color: #1B1C21;
+    text-decoration: none;
+    padding: 2px 4px;
+    border-bottom: 1px dotted #1B1C21;
+}
+
+#about-credits a:hover {
+    color: #1B1C21;
+    background-color: #ffffff80;
+    border-bottom: 1px #BFD0FC;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */

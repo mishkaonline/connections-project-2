@@ -2,8 +2,7 @@ const express = require('express');
 const { createServer } = require('http');
 // const { join } = require('node:path');
 const { Server } = require('socket.io');
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config();
 
 //Initialise HTTP Server
 const app = express();
@@ -30,8 +29,8 @@ const users = {} // object to store names and scores
 // Connect to MongoDB via QuickMongo
 const { Database } = require('quickmongo');
 
+
 // New Key using environment variable
-console.log(process.env.mongodburl);
 const db = new Database(process.env.mongodburl);
 
 db.on("ready", () => {

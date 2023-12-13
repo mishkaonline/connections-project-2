@@ -36,9 +36,18 @@ window.addEventListener('load', () => {
             console.error('Error fetching questions:', error);
         });
 
+    // Add audio
+    const hoverSound = document.getElementById('hover-sound');
+    const clickSound = document.getElementById('click-sound');
+    const correctSound = document.getElementById('correct-sound');
+    const incorrectSound = document.getElementById('incorrect-sound');
+    const winSound = document.getElementById('win-sound');
+    const loseSound = document.getElementById('lose-sound');
+
     // Starting the Game
     const submitButton = document.getElementById("submit-button");
     submitButton.addEventListener("click", () => {
+        clickSound.play();
 
         //get the user's name from input box
         const playerName = document.getElementById('name-field').value; // set playerName to what was just typed in the field
@@ -141,6 +150,12 @@ window.addEventListener('load', () => {
 
             // when player selects answer
             let optionButton = document.getElementById("option" + i);
+            // tap sound on button hover
+            optionButton.onmouseover = function () {
+                hoverSound.currentTime = 0;
+                hoverSound.play();
+            };
+
             optionButton.onclick = function () {
                 if (!isAnswered) {
                     optionButton.classList.add("selected");
@@ -150,11 +165,13 @@ window.addEventListener('load', () => {
 
                 // Check if the selected option is the correct answer
                 let quizDiv = document.getElementById('quiz');
-                let results = document.createElement('p');
+                let results = document.createElement('h2');
                 results.id = "results";
                 quizDiv.appendChild(results);
 
                 if (options[i] == answer) {
+                    correctSound.currentTime = 0;
+                    correctSound.play();
                     console.log("correct!");
 
                     optionButton.classList.add("correct"); // change the button to the success state
@@ -173,6 +190,8 @@ window.addEventListener('load', () => {
 
                 // If the selected option is incorrect
                 else {
+                    incorrectSound.currentTime = 0;
+                    incorrectSound.play();
                     console.log("incorrect!");
 
                     optionButton.classList.add("incorrect"); // change the button to the failure state
@@ -194,6 +213,7 @@ window.addEventListener('load', () => {
 
                 // When the player clicks the next question button
                 nextButton.addEventListener("click", () => {
+                    clickSound.play();
 
                     // add 1 to the current question number
                     currentQuestion++;
@@ -260,18 +280,24 @@ window.addEventListener('load', () => {
 
         // display a different message based on what score the player got
         if (currentScore == 0) {
+            loseSound.play();
             message.innerHTML = "You don't know us at all. Do you even go here?";
         } else if (currentScore == 1) {
+            loseSound.play();
             message.innerHTML = "Stop doing homework and start hanging out with us, kthxbye.";
         } else if (currentScore == 2) {
+            loseSound.play();
             message.innerHTML = "You've clearly been paying attention, but you can do better!";
         } else if (currentScore == 3) {
+            winSound.play();
             message.innerHTML = "Wow, you know us pretty well! But not quite well enough...";
         }
         else if (currentScore == 4) {
+            winSound.play();
             message.innerHTML = "Whoa, you know your stuff. You're clearly the cohort confidant!";
         }
         else if (currentScore == 5) {
+            winSound.play();
             message.innerHTML = "Umm, stalker much? You're the cohort creep!";
         }
 
@@ -330,7 +356,7 @@ window.addEventListener('load', () => {
     // Function to update the scoreboard UI
     function updateScoreboard(users) {
         const scoreboard = document.getElementById('scoreboard');
-        scoreboard.innerHTML = '';
+        scoreboard.innerHTML = "<span style='font-weight: 600;'>Live Scoreboard</span>";
 
         Object.keys(users).forEach((userID) => {
             const user = users[userID];
@@ -393,12 +419,10 @@ window.addEventListener('load', () => {
         }
     }
 
-
     // create/update the scoreboard when user data received
     socket.on('user scores', (users) => {
         updateScoreboard(users);
     });
-
 
     // Log anything we receive with the key "user scores"
     socket.on('user scores', (data) => {

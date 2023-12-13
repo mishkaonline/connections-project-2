@@ -13,6 +13,14 @@
 </head>
 
 <body>
+    <audio id="hover-sound" src="sounds/tap.wav"></audio>
+    <audio id="click-sound" src="sounds/click.mp3"></audio>
+    <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+    <audio id="incorrect-sound" src="sounds/error.mp3"></audio>
+    <audio id="win-sound" src="sounds/win.mp3"></audio>
+    <audio id="lose-sound" src="sounds/lose.mp3"></audio>
+    
+
     <!-- HEADER WITH MENU BUTTON -->
 
     <!-- Overlay Menu -->
@@ -27,7 +35,7 @@
             <a href="/">Play Now</a>
             <a href="about.html">About the Game</a>
             <a href="submit.html">Submit a Fact</a>
-            <p class="credits">✌️ by <a href="">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
+            <p class="credits">✌️ by <a href="https://www.mishka.design">Mishka</a> & <a href="https://www.nuff.design">Nuff</a></p>
         </div>
 
     </div>
@@ -36,12 +44,12 @@
     <img src="/img/icon_menu.svg" alt="open menu" id="menu-button">
 
     <!-- Scoreboard (probably move into header?) -->
-    <div id="scoreboard" class="score"></div>
+    <div id="scoreboard" class="score">
+    </div>
     <div id="intro" class="registration-container container">
         <h1>In Their Own Words</h1>
         <p>Are you ready to unravel some delightful dragonfruit mysteries? Prove who knows our classmates best in
-            this
-            spirited challenge of wit and friendship! Enter your name to begin.</p>
+            this spirited challenge of wit and friendship! Enter your name to begin.</p>
         <div>
             <input class="field" id="name-field" type="text" textbox="enter your name"></input>
             <button id="submit-button" class="button">let's go!</button>
