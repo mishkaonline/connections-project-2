@@ -354,3 +354,27 @@ button:hover {
     width: auto !important;
     padding: 0.25rem;
 }
+
+/* Footer */
+footer {
+    background-color: #1B1C21;
+    color: #DBE4FB;
+    padding: 0 2rem;
+    /* text-align: center; */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #BFD0FC;
+    text-decoration: none;
+    padding: 2px 4px;
+    border-bottom: 1px dotted #BFD0FC;
+}
+
+footer a:hover {
+    color: #1b1b1b;
+    background-color: #BFD0FC;
+}
