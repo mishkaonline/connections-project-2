@@ -13,7 +13,7 @@
   - [x] Styling this screen
 - [x] Design a footer, about page or other context section
 - [x] Audio?
-- [ ] New Avatars for folks who submitted
+- [x ] New Avatars for folks who submitted
 - [x] Find a way to use a mystery/silhouette avatar for anybody who doesn’t have one
 - [x] Environment variables locally and on Github
 - [x] Add question number before each question (to be updated to progress bar later?)
@@ -21,3 +21,11 @@
 JAN 3, 2024
 [] Responsive flex answers
 [] Responsive font sizing with media queries (question, names)
+
+
+JAN 24, 2024
+[] Design leaderboard
+[] Add timer (starts when name submitted, stops when final question answered)
+[] Create new DB to push final scores
+[] Push name, score, play time and date to DB
+[] When leaderboard called, sort by score then play time, display top 10
