@@ -133,7 +133,7 @@ button:hover {
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 2px;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 .question {
@@ -219,6 +219,46 @@ button:hover {
 
 .faded {
     opacity: 0.5;
+}
+
+/* Styling End Results */
+.results-flex {
+    display: flex;
+    /* flex-direction: row;
+    justify-content: space-evenly; */
+    align-items: center;
+    margin-bottom: 2rem
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-score {
+    font-size: 20rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin: 0;
+}
+
+.message {
+    color: #1B1C21;
+    font-family: "NaN Jaune";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 /* Overlay Menu */

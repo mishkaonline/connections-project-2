@@ -274,6 +274,11 @@ window.addEventListener('load', () => {
         // create a div for the results
         let quizDiv = document.getElementById('quiz');
 
+        let resultsFlex = document.createElement('div');
+
+        let leftDiv = document.createElement('div');
+        let rightDiv = document.createElement('div');
+
         let gameOver = document.createElement('h1');
         let results = document.createElement('p');
         let score = document.createElement('p');
@@ -286,11 +291,22 @@ window.addEventListener('load', () => {
         outOf.id = "out-of";
         message.id = "message";
 
+        resultsFlex.className = "results-flex";
+        leftDiv.className = "left";
+        rightDiv.className = "right";
+        score.className = "final-score";
+        message.className = "message";
+
         quizDiv.appendChild(gameOver);
-        quizDiv.appendChild(results);
-        quizDiv.appendChild(score);
-        quizDiv.appendChild(outOf);
-        quizDiv.appendChild(message);
+        quizDiv.appendChild(resultsFlex);
+
+        resultsFlex.appendChild(leftDiv);
+        resultsFlex.appendChild(rightDiv);
+
+        leftDiv.appendChild(results);
+        leftDiv.appendChild(score);
+        leftDiv.appendChild(outOf);
+        rightDiv.appendChild(message);
 
         gameOver.innerHTML = "Game Over!";
         results.innerHTML = "You got";
