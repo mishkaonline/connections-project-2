@@ -106,15 +106,19 @@
         },
         {
             "question": "I was part of a sorority in undergrad.",
-            "answer": "Jaiden"        },
+            "answer": "Jaiden"
+        },
         {
             "question": "I went to three different colleges in my undergrad.",
-            "answer": "Jaiden"        },
+            "answer": "Jaiden"
+        },
         {
             "question": "I've written several different screenplays including two episodic ones and only three made it into production.",
-            "answer": "Jaiden"        },
+            "answer": "Jaiden"
+        },
         {
             "question": "The last book I fully read was Mockingjay.",
-            "answer": "Jaiden"        }	
+            "answer": "Jaiden"
+        }
     ]
 }
