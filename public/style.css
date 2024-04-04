@@ -423,6 +423,12 @@ footer a:hover {
 }
 
 /* Leaderboard Styling */
+.leaderboard {
+    width: 80ch;
+
+    margin: 1rem auto;
+}
+
 .lb-entry {
     display: flex;
     justify-content: space-between;

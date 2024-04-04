@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
                 rank.textContent = index + 1;
                 entry.appendChild(rank);
 
-                let name = document.createElement('h2');
+                let name = document.createElement('p');
                 name.setAttribute('class', 'lb-name');
                 name.textContent = player.name;
                 entry.appendChild(name);
