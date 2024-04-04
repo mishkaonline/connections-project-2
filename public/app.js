@@ -6,6 +6,9 @@ let currentScore = 0; // current score for player
 const maxQuestions = 5; // maximum number of questions to ask per game
 let shuffledQuestions; // array to store shuffled questions
 let uniqueAnswers; // array to store unique answers
+let startTime; // time the game starts
+let endTime; // time the game ends
+let timeTaken; // time taken to complete the game
 
 window.addEventListener('load', () => {
     // Get all questions from server
@@ -58,6 +61,9 @@ window.addEventListener('load', () => {
 
         // Start the Quiz
         console.log("starting the quiz");
+
+        // Timer will count from this moment
+        startTime = Date.now();
 
         // Get First Question
         getQuestion();
@@ -271,6 +277,15 @@ window.addEventListener('load', () => {
     function endGame() {
         removeQuestion();
 
+        // Timer will count until this moment
+        endTime = Date.now();
+        timeTaken = endTime - startTime;
+
+        console.log("Time taken: " + timeTaken / 1000 + "s");
+
+        // Update Useer with time taken
+        socket.emit('time taken', timeTaken);
+
         // create a div for the results
         let quizDiv = document.getElementById('quiz');
 
@@ -379,13 +394,10 @@ window.addEventListener('load', () => {
         leaderboardButton.className = "button-secondary";
         buttonGroup.appendChild(leaderboardButton);
 
-        // When the player clicks the leaderboard button, display the leaderboard
+        // link leaderboard button to /leaderboard page
         leaderboardButton.addEventListener("click", () => {
-            console.log("viewing leaderboard");
-            clearGameover();
-            getLeaderboard();
-        });
-
+            window.location.href = "/leaderboard";
+        })
     }
 
     // Function to update the scoreboard UI
@@ -400,7 +412,7 @@ window.addEventListener('load', () => {
             }
             const scoreElement = document.createElement('div');
             scoreElement.className = 'score';
-            scoreElement.textContent = `${user.name}: ${user.score || 0}`;
+            scoreElement.textContent = `${user.name}: ${user.score || 0}` + "/" + maxQuestions; // display the user's name and score out of max questions
             scoreboard.appendChild(scoreElement);
         });
     }

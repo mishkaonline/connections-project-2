@@ -17,9 +17,10 @@ const io = new Server(server);
 
 app.use('/', express.static('public')); // Serve index.html via Express
 
-// Serve About and Submit Pages via Express
+// Serve About, Submit and Leaderboard Pages via Express
 app.use('/about', express.static('public/about.html'));
 app.use('/submit', express.static('public/submit.html'));
+app.use('/leaderboard', express.static('public/leaderboard.html'));
 
 // Body Parser to Parse JSON Data
 app.use(express.json());
@@ -58,6 +59,23 @@ app.get('/getQuestions', async (req, res) => {
   }
 });
 
+// add route to get all leaderboard data from database
+app.get('/getLeaderboard', async (req, res) => {
+  try {
+    // Fetch from the DB using await
+    const leaderboard = await db.get("leaderboard");
+    console.log(leaderboard);
+    if (!leaderboard) {
+      return res.status(404).json({ error: "No leaderboard data found" });
+    }
+    let obj = { leaderboard };
+    res.json(obj);
+  } catch (error) {
+    console.error("Error fetching leaderboard data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Connecting and Disconnecting Sockets
 
 io.on('connection', (socket) => { // when a new user connects
@@ -79,6 +97,24 @@ io.on('connection', (socket) => { // when a new user connects
 
     console.log(users);
     io.emit('user scores', users); // Why do we do it both here and above?
+  });
+
+  // Listen for time taken and add it to the users object
+  socket.on('time taken', (time) => {
+    console.log('Time taken: ' + time);
+    users[userID].time = time; // add the time to the user's object
+
+    // add today's date to the user object
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    users[userID].date = date;
+
+    console.log(users);
+    // io.emit('user scores', users);
+
+    // Add the user name, score and time to leaderboard database
+    db.push("leaderboard", users[userID]);
+
   });
 
   socket.on('disconnect', () => {

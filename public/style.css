@@ -421,3 +421,19 @@ footer a:hover {
     color: #1b1b1b;
     background-color: #BFD0FC;
 }
+
+/* Leaderboard Styling */
+.lb-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid #1B1C21;
+}
+
+.lb-name {}
+
+.lb-score {}
+
+.lb-time {}
+
+.lb-date {}
