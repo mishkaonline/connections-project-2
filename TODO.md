@@ -24,8 +24,13 @@ JAN 3, 2024
 
 
 JAN 24, 2024
-[] Design leaderboard
+[x] Design leaderboard
 [x] Add timer (starts when name submitted, stops when final question answered)
 [x] Create new DB to push final scores
 [x] Push name, score, play time and date to DB
-[] When leaderboard called, sort by score then play time, display top 10
+[x] When leaderboard called, sort by score then play time, display top 10
+
+OCT 18, 2024
+[] Update Glitch!
+[] Fix Github Issue (likely caused because Drive offlined some files)
+[] Leaderboard toggle between last [30 days] and all-time
