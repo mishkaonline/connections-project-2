@@ -24,5 +24,5 @@ jobs:
       - name: Run Archiver Script
         env:
           # Ensure you add your MongoDB connection string as a secret in GitHub (e.g., MONGO_URL)
-          mongodburl: ${{ secrets.MONGO_URL }}
+          mongodburl: ${{ secrets.mongodburl }}
         run: node archiver.js
