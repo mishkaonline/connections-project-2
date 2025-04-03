@@ -47,10 +47,11 @@ window.addEventListener('load', () => {
 
                 let date = document.createElement('p');
                 date.setAttribute('class', 'lb-date');
-                // format date as "Month DD"
+                // format date as "Month DD YY"
                 let dateObj = new Date(player.date);
                 let month = dateObj.toLocaleString('default', { month: 'short' });
-                date.textContent = month + ' ' + dateObj.getDate();
+                let year = dateObj.getFullYear().toString().slice(-2);
+                date.textContent = month + ' ' + dateObj.getDate() + ' ’' + year;
 
                 entry.appendChild(date);
 
